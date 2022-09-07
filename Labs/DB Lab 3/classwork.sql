@@ -19,15 +19,17 @@ rename column fname to firstname;
 alter table faculties
 modify age not null;
 
-drop table faculties;
+drop table faculty;
 
 create table faculty(
     fid int,
-    fname varchar(20),
-    age int
+    fname varchar(20) Not null,
+    age int,
+    dob date,
+    nic int unique
 )
 
-insert into faculty values (101,'Abdul Wahab', 12);
+insert into faculty values (101,NULL, 16, '12-sep-2020', 4141124);
 
 insert into faculty (fid, age) values (102, 11);
 
@@ -45,3 +47,4 @@ where fid=101;
 delete from faculty;
 
 select * from faculty;
+
