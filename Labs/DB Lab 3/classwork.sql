@@ -22,14 +22,22 @@ modify age not null;
 drop table faculty;
 
 create table faculty(
-    fid int,
+    fid int primary key,
     fname varchar(20) Not null,
-    age int,
+    age int check(age>20),
     dob date,
-    nic int unique
+    nic int unique,
+    lname varchar(20) default ('No value')
 )
 
-insert into faculty values (101,NULL, 16, '12-sep-2020', 4141124);
+create table student(
+    sid int primary key,
+    sname varchar(20),
+    fid int references faculty (fid)
+)
+
+insert into faculty values (101,'Abdul', 31, '12-sep-2020', 4141124,'Wahab');
+insert into student values (3,'Amna',101);
 
 insert into faculty (fid, age) values (102, 11);
 
@@ -48,3 +56,5 @@ delete from faculty;
 
 select * from faculty;
 
+--when you missed making a variable a primary key
+alter table faculty modify age primary key;
