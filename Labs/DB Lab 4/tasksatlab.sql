@@ -2,7 +2,7 @@
 select department_id, count(EMPLOYEE_ID), avg(salary) from employees group by department_id;
 
 --2
-select count(employee_id) from employees where 
+select job_id, count(employee_id) from employees group by job_id;
 
 --3
 select first_name, hire_date from employees where hire_date > (select hire_date from employees where employee_id = 110);
@@ -25,8 +25,20 @@ insert into employees_BKP select * from employees where employee_id IN (select e
 --9
 update employees set salary = salary + (salary*0.2) where employee_id  IN (select employee_id from employees where salary < 6000);
 
+--10
+delete from emp_bkp where job_id = 'FI_MGR';
+
 --11
 select department_id, count(employee_id) from employees where salary > 20000 group by department_id;
+
+
+
+
+
+
+
+
+
 
 
 
