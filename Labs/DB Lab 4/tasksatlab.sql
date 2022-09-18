@@ -11,7 +11,7 @@ select first_name, hire_date from employees where hire_date > (select hire_date 
 select department_id from employees group by department_id having max(salary) >= 15000;
 
 --5
-select employee_id, first_name || ' ' || last_name, job_id, salary from employees where salary < ANY (select salary from employees where job_id = 'IT_PROG');
+select employee_id, first_name || ' ' || last_name, job_id, salary from employees where salary < ALL (select salary from employees where job_id = 'IT_PROG');
 
 --6
 select * from employees where employee_id != ALL (select employee_id from job_history);
