@@ -35,6 +35,7 @@ public class App
    
    <bean id="campus" class="com.wahab.spring.campus" >
    <constructor-arg value="10" type="int" ></constructor-arg>
+   <property name="name" value="karachi" ></property>
    </bean>
 	   
    
