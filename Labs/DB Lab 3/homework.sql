@@ -41,6 +41,15 @@ public class App
    
    
 </beans>
+/j-c
+@Configuration
+public class Appconfig{
+	@Bean
+	public Student getstd() {
+		return new Student();
+	}
+}
+
 //jdbc
 package l10;
 
